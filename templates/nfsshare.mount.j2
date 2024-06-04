@@ -1,0 +1,11 @@
+[Unit]
+Description=Example NFS Share
+
+[Mount]
+What={{ nfs_server }}:{{client_share_folder}}
+Where={{client_share_folder}}
+Type=nfs4
+Options=defaults
+
+[Install]
+WantedBy=multi-user.target

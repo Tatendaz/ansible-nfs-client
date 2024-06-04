@@ -1,0 +1,17 @@
+---
+# handlers file for ansible-nfs-client
+- name: Restart service and also issue daemon-reload to pick up config changes
+  ansible.builtin.systemd_service:
+    state: restarted
+    daemon_reload: true
+    name: nfs-example.mount
+  listen: "restart mount"
+
+- name: Enable automount unit file
+  ansible.builtin.shell: "sudo systemctl enable nfs-example.automount"
+  args:
+    executable: /bin/bash
+  register: check_for_failures
+  failed_when: check_for_failures.rc > 0
+  changed_when: false
+  listen: "enable automount"

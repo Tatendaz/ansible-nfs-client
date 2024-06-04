@@ -1,0 +1,19 @@
+---
+# tasks file for ansible-nfs-client
+- name: Install nfs-common package
+  import_tasks: install.yml
+
+- name: Create share folder
+  import_tasks: create.yml
+  notify: "restart mount"
+
+- name: Copy the systemd mount file
+  import_tasks: configure_mount.yml
+  notify: "restart mount"
+
+- name: Copy the systemd automount file and enable
+  import_tasks: configure_automount.yml
+  notify: "restart mount"
+
+# - name: Enable and start the automount service
+#   import_tasks: reload.yml

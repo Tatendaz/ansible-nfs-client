@@ -1,0 +1,8 @@
+---
+- name: Create NFS Server configuration file
+  template:
+    src: templates/nfsshare.mount.j2
+    dest: "/etc/systemd/system/{{ client_share_folder_systemd }}.mount"
+    owner: root
+    group: root
+    mode: "u=rwx,g=,o="

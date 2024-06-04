@@ -1,0 +1,7 @@
+---
+# defaults file for ansible-nfs-client
+
+client_share_folder: "/nfs/example"
+nfs_server: "10.128.0.5"
+TimeoutIdleSec: "60"
+client_share_folder_systemd: "nfs-example" #this should be the same as client_share_folder but replacing foler delimiters with "-" except at the start

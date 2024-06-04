@@ -1,0 +1,9 @@
+[Unit]
+Description=Example NFS Share
+
+[Automount]
+Where={{client_share_folder}}
+TimeoutIdleSec={{ TimeoutIdleSec }}
+
+[Install]
+WantedBy=multi-user.target
