@@ -4,11 +4,11 @@
   ansible.builtin.systemd_service:
     state: restarted
     daemon_reload: true
-    name: nfs-example.mount
+    name: "{{ client_share_folder_systemd }}.mount"
   listen: "restart mount"
 
 - name: Enable automount unit file
-  ansible.builtin.shell: "sudo systemctl enable nfs-example.automount"
+  ansible.builtin.shell: "sudo systemctl enable {{ client_share_folder_systemd }}.automount"
   args:
     executable: /bin/bash
   register: check_for_failures
