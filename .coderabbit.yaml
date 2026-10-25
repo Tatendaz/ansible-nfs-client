@@ -1,7 +1,0 @@
-# CodeRabbit configuration: https://docs.coderabbit.ai/reference/yaml-template
-reviews:
-  auto_review:
-    # Dependabot PRs carry no "@coderabbitai ignore"; skip them so monthly
-    # bumps do not spend the shared review budget.
-    ignore_usernames:
-      - "dependabot[bot]"
